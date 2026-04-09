@@ -17,7 +17,7 @@ public class PedidoService {
 
     public Pedido crear(Pedido pedido) {
         pedido.setFechaPedido(LocalDate.now());
-        return PedidoRepository.guardar(pedido); // delego al repository que guarde los datos
+        return pedidoRepository.guardar(pedido); // delego al repository que guarde los datos
     }
 
 
@@ -27,7 +27,7 @@ public class PedidoService {
 
     //BUSCAR POR ID
     public Pedido buscarPorId(Long id){
-        return PedidoRepository.buscarPorId(id);
+        return pedidoRepository.buscarPorId(id);
 
     }
 
@@ -44,11 +44,11 @@ public class PedidoService {
 
     //ELIMINAR
     public Pedido eliminar(Long id){
-        return PedidoRepository.eliminar(id);
+        return pedidoRepository.eliminar(id);
     }
 
     //BUSCAR POR ESTADO
     public List<Pedido> buscarPorEstado(Estado estado){
-        return PedidoRepository.buscarPorEstado(estado);
+        return pedidoRepository.buscarPorEstado(estado);
     }
 }

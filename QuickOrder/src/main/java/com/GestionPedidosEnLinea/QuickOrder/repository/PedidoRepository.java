@@ -1,4 +1,5 @@
 package com.GestionPedidosEnLinea.QuickOrder.repository;
+import com.GestionPedidosEnLinea.QuickOrder.model.Estado;
 import org.springframework.stereotype.Repository;
 import com.GestionPedidosEnLinea.QuickOrder.model.Pedido;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class PedidoRepository {
 
     public Pedido guardar(Pedido pedido) {
         pedido.setId(contadorId++);
-        pedidos.put(pedidos.get(id), pedido);
+        pedidos.put(pedido.getId(), pedido);
         return pedido;
 
 
@@ -38,7 +39,7 @@ public class PedidoRepository {
     }
 
 
-    public List<Pedido> buscarPorEstado(Pedido pedido) {
+    public List<Pedido> buscarPorEstado(Estado estado) {
         return pedidos.values().stream()
                 .filter(i -> i.getEstado() == estado)
                 .collect(Collectors.toList());
